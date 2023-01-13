@@ -22,11 +22,12 @@ player=playerid_lookup('Bradley', 'Archie')
 before_archies_mlb_debut = '2015-01-01'
 pitch_sample_stop_date = '2020-12-31'
 
-# get archies data from statcast 
+# get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
 data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, 605151) #aint a clue what this number is is it player from line 19 but forgot to be used? 
 
 #label hit or out by event
 data_archie.loc[(data_archie['events'] == 'single') | (data_archie['events'] == 'double')| (data_archie['events'] == 'triple')| (data_archie['events'] == 'home_run'), 'hit_out'] = 'hit'  
+
 data_archie.loc[(data_archie['events'] != 'single') & (data_archie['events'] != 'double') & (data_archie['events'] != 'triple') & (data_archie['events'] != 'home_run'), 'hit_out'] = 'out' 
 
 #Hexbin using BBE coordinates, change color basedo n what metric wants to be shown
