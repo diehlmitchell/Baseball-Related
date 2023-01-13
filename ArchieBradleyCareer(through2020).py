@@ -23,7 +23,7 @@ before_archies_mlb_debut = '2015-01-01'
 pitch_sample_stop_date = '2020-12-31'
 
 # get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
-data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, archies_playerid) #before I replaced it this number was 605151 #aint a clue what this number is, is it player from line 19 but forgot to be used? 
+data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, archies_playerid) #before I replaced it this number was 605151
 
 # label events with the 4 hit types as hits
 data_archie.loc[
