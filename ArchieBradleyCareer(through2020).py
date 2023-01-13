@@ -25,8 +25,7 @@ pitch_sample_stop_date = '2020-12-31'
 # get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
 data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, 605151) #aint a clue what this number is, is it player from line 19 but forgot to be used? 
 
-# i dont know what this means -- refere above to docs
-#label hit or out by event
+# label events with the 4 hit types as hits
 data_archie.loc[
       (data_archie['events'] == 'single')  
     | (data_archie['events'] == 'double') 
@@ -34,6 +33,7 @@ data_archie.loc[
     | (data_archie['events'] == 'home_run'),
 'hit_out'] = 'hit'  
 
+# label remaing events as outs
 data_archie.loc[
       (data_archie['events'] != 'single') 
     & (data_archie['events'] != 'double') 
