@@ -4,39 +4,57 @@
 Created on Tue Jan 12 17:19:46 2021
 @author: EmilioMartinez
 """
+
+# NEEDS A REQUIREMENTS.txt 
 from pybaseball.plotting import plot_bb_profile, plot_stadium
 import pybaseball as pyb
 from pybaseball import statcast
-from pybaseball import statcast_batter,statcast_pitcher,spraychart,team_pitching,team_pitching_bref,pitching_stats,batting_stats
+from pybaseball import statcast_batter, statcast_pitcher, spraychart, team_pitching, team_pitching_bref, pitching_stats, batting_stats, playerid_lookup
 import pandas as pd 
 import matplotlib.pyplot as plt
-from pybaseball import playerid_lookup
 import numpy as np
  
+#get playeerid for archie from pybaseball 
+# (NOTE: WHAT IS PLAYER? (Whats in it for example) TO FIND OUT LATER)
+archies_playerid = playerid_lookup('Bradley', 'Archie')
 
-#get playeer id for archie
-player=playerid_lookup('Bradley','Archie')
-#get his career stats
-data_archie = statcast_pitcher('2015-01-01', '2020-12-31', 605151)
+#get his career stats up till 2021 (INCLUDES 2020)
+before_archies_mlb_debut = '2015-01-01'
+pitch_sample_stop_date = '2020-12-31'
 
-#label hit or out by event
-data_archie.loc[(data_archie['events'] == 'single') | (data_archie['events'] == 'double')| (data_archie['events'] == 'triple')| (data_archie['events'] == 'home_run'), 'hit_out'] = 'hit'  
-data_archie.loc[(data_archie['events'] != 'single') & (data_archie['events'] != 'double') & (data_archie['events'] != 'triple') & (data_archie['events'] != 'home_run'), 'hit_out'] = 'out' 
+# get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
+data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, archies_playerid) #before I replaced it this number was 605151
 
-#Hexbin using BBE coordinates, change color basedo n what metric wants to be shown
+# label events with the 4 hit types as hits
+data_archie.loc[
+      (data_archie['events'] == 'single')  
+    | (data_archie['events'] == 'double') 
+    | (data_archie['events'] == 'triple') 
+    | (data_archie['events'] == 'home_run'),
+'hit_out'] = 'hit'  
+
+# label remaing events as outs
+data_archie.loc[
+      (data_archie['events'] != 'single') 
+    & (data_archie['events'] != 'double') 
+    & (data_archie['events'] != 'triple') 
+    & (data_archie['events'] != 'home_run'),
+'hit_out'] = 'out' 
+
+#Hexbin using BBE coordinates, change color basedo n what metric wants to be shown --- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html
 plt.hexbin(data_archie['hc_x'], data_archie['hc_y']*-1, C=data_archie['launch_speed']>50 ,cmap=plt.cm.YlOrRd, gridsize = 20)
 cb = plt.colorbar()
 cb.set_label('Exit Velo')
 #plt.xlabel('Exit Velocity')
 #plt.ylabel('Launch Angle') 
 plt.title('Archie Bradley Career Hits Allowed Density')
-
 plt.show() 
 
 #Create a function using the stadium csv ile from pybaseball. This will plot outlines of all stadiums
 stadium = pd.read_csv('https://raw.githubusercontent.com/jldbc/pybaseball/master/pybaseball/data/mlbstadiums.csv')
 stadium['y'] = stadium['y'] * -1
 stadium = stadium.loc[:,'team':]
+
 def plot_stadium(team, color):
     team_df = stadium[stadium['team'] == team.lower()]
     for i in stadium['segment'].unique():

@@ -1,0 +1,5 @@
+# requirements for ArchieBradleyCareerThrough2020.py
+pybaseball
+pandas
+matplotlib
+numpy
