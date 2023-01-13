@@ -16,7 +16,9 @@ from pybaseball import playerid_lookup
 import numpy as np
  
 #get playeer id for archie from pybaseball 
-player=playerid_lookup('Bradley','Archie')
+# (NOTE: WHAT IS PLAYER? (Whats in it for example) TO FIND OUT LATER)
+player=playerid_lookup('Bradley', 'Archie')
+
 #get his career stats
 data_archie = statcast_pitcher('2015-01-01', '2020-12-31', 605151)
 
