@@ -26,7 +26,12 @@ pitch_sample_stop_date = '2020-12-31'
 data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, 605151) #aint a clue what this number is is it player from line 19 but forgot to be used? 
 
 #label hit or out by event
-data_archie.loc[(data_archie['events'] == 'single') | (data_archie['events'] == 'double')| (data_archie['events'] == 'triple')| (data_archie['events'] == 'home_run'), 'hit_out'] = 'hit'  
+data_archie.loc[
+      (data_archie['events'] == 'single')  
+    | (data_archie['events'] == 'double') 
+    | (data_archie['events'] == 'triple') 
+    | (data_archie['events'] == 'home_run'),
+'hit_out'] = 'hit'  
 
 data_archie.loc[(data_archie['events'] != 'single') & (data_archie['events'] != 'double') & (data_archie['events'] != 'triple') & (data_archie['events'] != 'home_run'), 'hit_out'] = 'out' 
 
