@@ -4,6 +4,8 @@
 Created on Tue Jan 12 17:19:46 2021
 @author: EmilioMartinez
 """
+
+# NEEDS A REQUIREMENTS.txt 
 from pybaseball.plotting import plot_bb_profile, plot_stadium
 import pybaseball as pyb
 from pybaseball import statcast
