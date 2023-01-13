@@ -9,10 +9,9 @@ Created on Tue Jan 12 17:19:46 2021
 from pybaseball.plotting import plot_bb_profile, plot_stadium
 import pybaseball as pyb
 from pybaseball import statcast
-from pybaseball import statcast_batter, statcast_pitcher, spraychart, team_pitching, team_pitching_bref, pitching_stats, batting_stats
+from pybaseball import statcast_batter, statcast_pitcher, spraychart, team_pitching, team_pitching_bref, pitching_stats, batting_stats, playerid_lookup
 import pandas as pd 
 import matplotlib.pyplot as plt
-from pybaseball import playerid_lookup
 import numpy as np
  
 #get playeer id for archie from pybaseball 
