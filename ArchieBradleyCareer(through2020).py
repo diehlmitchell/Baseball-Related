@@ -48,13 +48,13 @@ cb.set_label('Exit Velo')
 #plt.xlabel('Exit Velocity')
 #plt.ylabel('Launch Angle') 
 plt.title('Archie Bradley Career Hits Allowed Density')
-
 plt.show() 
 
 #Create a function using the stadium csv ile from pybaseball. This will plot outlines of all stadiums
 stadium = pd.read_csv('https://raw.githubusercontent.com/jldbc/pybaseball/master/pybaseball/data/mlbstadiums.csv')
 stadium['y'] = stadium['y'] * -1
 stadium = stadium.loc[:,'team':]
+
 def plot_stadium(team, color):
     team_df = stadium[stadium['team'] == team.lower()]
     for i in stadium['segment'].unique():
