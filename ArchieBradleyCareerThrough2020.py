@@ -19,7 +19,7 @@ import numpy as np
 archies_playerid = playerid_lookup('Bradley', 'Archie')
 
 #get his career stats up till 2021 (INCLUDES 2020)
-before_archies_mlb_debut = '2015-01-01'
+before_archies_mlb_debut = '2018-01-01'
 pitch_sample_stop_date = '2020-12-31'
 
 # get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
