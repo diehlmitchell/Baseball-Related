@@ -19,8 +19,11 @@ import numpy as np
 # (NOTE: WHAT IS PLAYER? (Whats in it for example) TO FIND OUT LATER)
 player=playerid_lookup('Bradley', 'Archie')
 
-#get his career stats
-data_archie = statcast_pitcher('2015-01-01', '2020-12-31', 605151)
+#get his career stats up till 2021 (INCLUDES 2020)
+before_archies_mlb_debut = '2015-01-01'
+pitch_sample_stop_date = '2020-12-31'
+ 
+data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, 605151)
 
 #label hit or out by event
 data_archie.loc[(data_archie['events'] == 'single') | (data_archie['events'] == 'double')| (data_archie['events'] == 'triple')| (data_archie['events'] == 'home_run'), 'hit_out'] = 'hit'  
