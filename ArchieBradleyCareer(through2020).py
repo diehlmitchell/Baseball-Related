@@ -16,7 +16,7 @@ import numpy as np
  
 #get playeer id for archie from pybaseball 
 # (NOTE: WHAT IS PLAYER? (Whats in it for example) TO FIND OUT LATER)
-player=playerid_lookup('Bradley', 'Archie')
+player = playerid_lookup('Bradley', 'Archie')
 
 #get his career stats up till 2021 (INCLUDES 2020)
 before_archies_mlb_debut = '2015-01-01'
