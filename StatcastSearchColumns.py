@@ -30,8 +30,8 @@ class PitchingStatColumn(str, Enum):
     game_year = 'game_year' 
     pitch_movement_x = 'pfx_x' 
     pitch_movement_z = 'pfx_z' 
-    plate_x = 'plate_x' #ballplate_x ?
-    plate_z = 'plate_z' #ballplate_z ?    
+    plate_x = 'plate_x' 
+    plate_z = 'plate_z' 
     runner_on_1b = 'on_1b' 
     runner_on_2b = 'on_2b' 
     runner_on_3b = 'on_3b' 
