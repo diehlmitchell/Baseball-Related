@@ -1,6 +1,5 @@
 from enum import Enum
 
-# im going to be quite conservative on which ones get a more verbose column name (only ones that drive me crazy get changed)
 class PitchingStatColumn(str, Enum):
     pitch_type = 'pitch_type'
     game_date = 'game_date'
@@ -185,7 +184,7 @@ class PitchingStatColumn(str, Enum):
 
 # hit_location
 # Position of first fielder to touch the ball.
-# ball_fielded_location = 'hit_location'
+# hit_fielded_location = 'hit_location'
 
 # bb_type
 # Batted ball type, ground_ball, line_drive, fly_ball, popup.
