@@ -1,7 +1,7 @@
 from enum import Enum
 
 # im going to be quite conservative on which ones get a more verbose column name (only ones that drive me crazy get changed)
-class VerboseColumn(str, Enum):
+class PitchingStatColumn(str, Enum):
     pitch_type = 'pitch_type'
     game_date = 'game_date'
     release_speed = 'release_speed'
