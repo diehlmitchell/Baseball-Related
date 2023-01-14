@@ -16,7 +16,7 @@ class PitchingStatColumn(str, Enum):
     break_angle_deprecated = 'break_angle_deprecated' # deprecated column 
     break_length_deprecated = 'break_length_deprecated' # deprecated column 
     plate_zone = 'zone'
-    pa_description = 'des' #description of plate appearance
+    pa_description = 'des' # description of plate appearance
     game_type = 'game_type'
     b_bats = 'stand'
     p_throws = 'p_throws'
