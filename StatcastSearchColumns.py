@@ -53,10 +53,9 @@ class VerboseColumn(str, Enum):
 # MLB Player Id tied to the play event.
 # pitcher = 'pitcher'
 
-
-
 # events
 # Event of the resulting Plate Appearance.
+# events = 'events'
 
 # description
 # Description of the resulting pitch.
@@ -64,19 +63,23 @@ class VerboseColumn(str, Enum):
 
 # spin_dir
 # * Deprecated field from the old tracking system.
+# spin_dir = 'spin_dir'
 
 # spin_rate_deprecated
 # * Deprecated field from the old tracking system. Replaced by release_spin
+# spin_rate_deprecated = 'spin_rate_deprecated'
 
 # break_angle_deprecated
 # * Deprecated field from the old tracking system.
+# break_angle_deprecated = 'break_angle_deprecated'
 
 # break_length_deprecated
 # * Deprecated field from the old tracking system.
+# break_length_deprecated = 'break_length_deprecated'
 
 # zone
 # Zone location of the ball when it crosses the plate from the catcher's perspective.
-
+# zone = 'zone'
 
 # des
 # Plate appearance description from game day.
