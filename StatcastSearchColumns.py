@@ -39,8 +39,8 @@ class PitchingStatColumn(str, Enum):
     outs_when_up = 'outs_when_up' 
     inning = 'inning' 
     topbot_of_inning = 'inning_topbot'
-    hit_coord_x = 'hit_coord_x'
-    hit_coord_y = 'hit_coord_y'
+    hit_coord_x = 'hc_x'
+    hit_coord_y = 'hc_y'
     tfs_deprecated = 'tfs_deprecated' # deprecated column 
     tfs_zulu_deprecated = 'tfs_zulu_deprecated' # deprecated column 
     catcher = 'fielder_2'
