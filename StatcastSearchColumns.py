@@ -24,7 +24,7 @@ class PitchingStatColumn(str, Enum):
     home_team = 'home_team'
     away_team = 'away_team'
     pitch_result = 'type'
-    ball_fielded_location = 'hit_location' 
+    hit_fielded_location = 'hit_location' 
     batted_ball_type = 'bb_type'
     balls_in_count = 'balls'    
     strikes_in_count = 'strikes' 
