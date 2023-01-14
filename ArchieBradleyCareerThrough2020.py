@@ -25,6 +25,11 @@ pitch_sample_stop_date = '2020-12-31'
 # get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
 data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date, 605151) #before I replaced it this number was 605151
 
+# get and display headers for data_archie_header
+# iterating the columns
+# for col in data_archie.columns:
+#     print(col)
+
 # label events with the 4 hit types as hits
 data_archie.loc[
       (data_archie['events'] == 'single')  
