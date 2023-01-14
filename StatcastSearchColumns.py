@@ -11,6 +11,13 @@ class VerboseColumn(str, Enum):
     batter = 'batter'
     pitcher = 'pitcher'
     events = 'events'
+    PitchDescription = 'description'
+    spin_dir = 'spin_dir' # deprecated column 
+    spin_rate_deprecated = 'spin_rate_deprecated' # deprecated column 
+    break_angle_deprecated = 'break_angle_deprecated' # deprecated column 
+    break_length_deprecated = 'break_length_deprecated' # deprecated column 
+    zone = 'zone'
+    PaDescription = 'des' #description of PA
 
 
 
@@ -53,6 +60,7 @@ class VerboseColumn(str, Enum):
 
 # description
 # Description of the resulting pitch.
+# PitchDescription = 'description'
 
 # spin_dir
 # * Deprecated field from the old tracking system.
@@ -72,6 +80,7 @@ class VerboseColumn(str, Enum):
 
 # des
 # Plate appearance description from game day.
+# PaDescription = 'des'
 
 # game_type
 # Type of Game. E = Exhibition, S = Spring Training, R = Regular Season, F = Wild Card, D = Divisional Series, L = League Championship Series, W = World Series
