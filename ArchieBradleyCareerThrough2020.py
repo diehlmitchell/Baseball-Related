@@ -13,13 +13,15 @@ from pybaseball.plotting import plot_bb_profile, plot_stadium
 import pandas as pd 
 import matplotlib.pyplot as plt
 import numpy as np
+# import StatcastSearchColumns
+from StatcastSearchColumns import PitchingStats
  
 #get playeerid for archie from pybaseball 
 # (NOTE: WHAT IS PLAYER? (Whats in it for example) TO FIND OUT LATER)
 archies_playerid = playerid_lookup('Bradley', 'Archie')
 
 #get his career stats up till 2021 (INCLUDES 2020)
-before_archies_mlb_debut = '2018-01-01'
+before_archies_mlb_debut = '2019-01-01'
 pitch_sample_stop_date = '2020-12-31'
 
 # get archies data from statcast  --- https://github.com/jldbc/pybaseball/blob/master/docs/statcast_pitcher.md
@@ -32,22 +34,22 @@ data_archie = statcast_pitcher(before_archies_mlb_debut, pitch_sample_stop_date,
 
 # label events with the 4 hit types as hits
 data_archie.loc[
-      (data_archie['events'] == 'single')  
-    | (data_archie['events'] == 'double') 
-    | (data_archie['events'] == 'triple') 
-    | (data_archie['events'] == 'home_run'),
+      (data_archie[PitchingStats.events] == 'single')  
+    | (data_archie[PitchingStats.events] == 'double') 
+    | (data_archie[PitchingStats.events] == 'triple') 
+    | (data_archie[PitchingStats.events] == 'home_run'),
 'hit_out'] = 'hit'  
 
 # label remaing events as outs
 data_archie.loc[
-      (data_archie['events'] != 'single') 
-    & (data_archie['events'] != 'double') 
-    & (data_archie['events'] != 'triple') 
-    & (data_archie['events'] != 'home_run'),
+      (data_archie[PitchingStats.events] != 'single') 
+    & (data_archie[PitchingStats.events] != 'double') 
+    & (data_archie[PitchingStats.events] != 'triple') 
+    & (data_archie[PitchingStats.events] != 'home_run'),
 'hit_out'] = 'out' 
 
 #Hexbin using BBE coordinates, change color basedo n what metric wants to be shown --- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html
-plt.hexbin(data_archie['hc_x'], data_archie['hc_y']*-1, C=data_archie['launch_speed']>50 ,cmap=plt.cm.YlOrRd, gridsize = 20)
+plt.hexbin(data_archie[PitchingStats.hit_coord_x], data_archie[PitchingStats.hit_coord_y]*-1, C=data_archie['launch_speed']>50 ,cmap=plt.cm.YlOrRd, gridsize = 20)
 cb = plt.colorbar()
 cb.set_label('Exit Velo')
 #plt.xlabel('Exit Velocity')
@@ -70,8 +72,8 @@ def plot_stadium(team, color):
     plt.axis('off')
 
 #Overlay archie hexbin of hits with Citizens bank park
-plt.hexbin(data_archie['hc_x'], data_archie['hc_y']*-1, C=data_archie['hit_out']=='hit',cmap=plt.cm.YlOrRd, gridsize = 25)
 plot_stadium('phillies','black') 
+plt.hexbin(data_archie[PitchingStats.hit_coord_x], data_archie[PitchingStats.hit_coord_y]*-1, C=data_archie['hit_out']=='hit',cmap=plt.cm.YlOrRd, gridsize = 25)
 cb = plt.colorbar()
 cb.set_label('Hit Probablity') 
 plt.suptitle('Archie Bradley Career Hit Allowance', y=.975, fontsize=15)
@@ -80,7 +82,7 @@ plt.show()
 
 #Overlay archie hexbin of EV with Citizens bank park
 plot_stadium('phillies','black')
-plt.hexbin(data_archie['hc_x'], data_archie['hc_y']*-1, C=data_archie['launch_speed'],cmap=plt.cm.Spectral_r, gridsize = 25)
+plt.hexbin(data_archie[PitchingStats.hit_coord_x], data_archie[PitchingStats.hit_coord_y]*-1, C=data_archie[PitchingStats.launch_speed],cmap=plt.cm.Spectral_r, gridsize = 25)
 cb = plt.colorbar()
 cb.set_label('Exit Velocity') 
 plt.suptitle('Archie Bradley Career BBE by Exit Velocity', y=.975, fontsize=15)
