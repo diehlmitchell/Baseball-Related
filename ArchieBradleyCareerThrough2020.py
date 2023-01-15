@@ -3,6 +3,11 @@
 """
 Created on Tue Jan 12 17:19:46 2021
 @author: EmilioMartinez
+
+
+
+Updated on Tue Jan 15 2022
+@author: diehlmitchell
 """
 
 # NEEDS A REQUIREMENTS.txt 
