@@ -1,6 +1,6 @@
 from enum import Enum
 
-class PitchingStatColumn(str, Enum):
+class PitchingStats(str, Enum):
     pitch_type = 'pitch_type'
     game_date = 'game_date'
     release_speed = 'release_speed'
