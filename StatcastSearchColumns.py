@@ -54,6 +54,7 @@ class PitchingStats(str, Enum):
     top_of_strikezone = 'sz_top'
     bottom_of_strikezone = 'sz_bot'
     hit_distance = 'hit_distance'
+    launch_speed = 'launch_speed'
     effective_speed = 'effective_speed'
     release_spin = 'release_spin'
     release_extension = 'release_extension'
@@ -310,7 +311,7 @@ class PitchingStats(str, Enum):
 
 # launch_speed
 # Exit velocity of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here.
-# hit_distance = 'hit_distance'
+# launch_speed = 'launch_speed'
 
 # launch_angle
 # Launch angle of the batted ball as tracked by Statcast. For the limited subset of batted balls not tracked directly, estimates are included based on the process described here.
