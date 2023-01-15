@@ -49,7 +49,7 @@ data_archie.loc[
 'hit_out'] = 'out' 
 
 #Hexbin using BBE coordinates, change color basedo n what metric wants to be shown --- https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hexbin.html
-plt.hexbin(data_archie[PitchingStats.hit_coord_x], data_archie[PitchingStats.hit_coord_y]*-1, C=data_archie['launch_speed']>50 ,cmap=plt.cm.YlOrRd, gridsize = 20)
+plt.hexbin(data_archie[PitchingStats.hit_coord_x], data_archie[PitchingStats.hit_coord_y]*-1, C=data_archie[PitchingStats.launch_speed]>50 ,cmap=plt.cm.YlOrRd, gridsize = 20)
 cb = plt.colorbar()
 cb.set_label('Exit Velo')
 #plt.xlabel('Exit Velocity')
